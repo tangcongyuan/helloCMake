@@ -1,0 +1,3 @@
+/home/eric/github/helloCMake/build/CMakeFiles/rebuild_cache.dir
+/home/eric/github/helloCMake/build/CMakeFiles/exec.dir
+/home/eric/github/helloCMake/build/CMakeFiles/edit_cache.dir
