@@ -6,10 +6,14 @@
 using namespace std;
 
 class Instruction {
-  char* content;
+  const char* content;
 
 public:
-  Instruction(const char* content) { cout << "Constructing Instrction: " << content << endl; }
+  Instruction(const char* content) {
+      this->content = content;
+      cout << "Constructing Instrction: " << this->content << endl;
+  }
+  ~Instruction() { cout << "Deleting instruction: " << this->content << endl; }
 
 };
 
