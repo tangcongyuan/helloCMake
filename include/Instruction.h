@@ -11,9 +11,18 @@ class Instruction {
 public:
   Instruction(const char* content) {
       this->content = content;
-      cout << "Constructing Instrction: " << this->content << endl;
+      cout << "Constructing Instrction: " << *this << endl;
   }
-  ~Instruction() { cout << "Deleting instruction: " << this->content << endl; }
+
+  ~Instruction() { cout << "Deleting instruction: " << this << endl; }
+
+  friend ostream& operator<<(ostream& os, Instruction& instr) {
+      return os << instr.content;
+  }
+
+  friend ostream& operator<<(ostream& os, Instruction* instr) {
+      return os << instr->content;
+  }
 
 };
 
