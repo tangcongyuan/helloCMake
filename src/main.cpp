@@ -5,10 +5,18 @@
 #include <vector>
 #include <list>
 
-void threadFunction() {
-  using namespace std;
-  cout << "Your're inside a new thread." << endl;
-}
+struct Counter {
+  std::mutex mutex;
+  int value;
+
+  Counter(): value(0) {}
+
+  void increment() {
+    mutex.lock();
+    value++;
+    mutex.unlock();
+  }
+};
 
 int main(int argc, char** argv) {
   using namespace std;
@@ -26,9 +34,21 @@ int main(int argc, char** argv) {
   v.push_back(3);
   util::print(v, "list");
 
-  thread th(threadFunction);
-  cout << "Your're inside the main thread." << endl;
-  th.join();
+  const int THREAD_NUM = 10;
+  thread threads[THREAD_NUM];
+  Counter counter;
+
+  for(int i = 0; i < THREAD_NUM; i++) {
+    threads[i] = thread([&counter]() {
+      for(int i = 0; i < 1000; i++)  counter.increment();
+    });
+  }
+
+  for(int i = 0; i < THREAD_NUM; i++) {
+    threads[i].join();
+  }
+
+  cout << "Count value = " << counter.value << endl;
 
   return 0;
 }
