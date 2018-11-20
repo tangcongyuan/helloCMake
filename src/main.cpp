@@ -1,37 +1,9 @@
+#include "ConcurrentCounter.h"
 #include "Instruction.h"
 #include "util.h"
-#include <thread>
-#include <atomic>
 #include <iostream>
 #include <vector>
 #include <list>
-
-struct Counter {
-  std::mutex mutex;
-  int value;
-
-  Counter(): value(0) {}
-
-  void increment() {
-    mutex.lock();
-    value++;
-    mutex.unlock();
-  }
-};
-
-struct AtomicCounter {
-  std::atomic<int> value;
-
-  AtomicCounter(): value(0) {}
-
-  void increment() {
-    value++;
-  }
-
-  int get() {
-    return value.load();
-  }
-};
 
 int main(int argc, char** argv) {
   using namespace std;
@@ -49,31 +21,8 @@ int main(int argc, char** argv) {
   v.push_back(3);
   util::print(v, "list");
 
-  // Mutex with Counter
-  const int THREAD_NUM = 10;
-  thread threads[THREAD_NUM];
-  Counter counter;
-  for(int i = 0; i < THREAD_NUM; i++) {
-    threads[i] = thread([&counter]() {
-      for(int i = 0; i < 1000; i++)  counter.increment();
-    });
-  }
-  for(int i = 0; i < THREAD_NUM; i++) {
-    threads[i].join();
-  }
-  cout << "Counter value = " << counter.value << endl;
-
-  // Atomic Types with AtomicCounter
-  AtomicCounter aCounter;
-  for(int i = 0; i < THREAD_NUM; i++) {
-    threads[i] = thread([&aCounter]() {
-      for(int i = 0; i < 1000; i++)  aCounter.increment();
-    });
-  }
-  for(int i = 0; i < THREAD_NUM; i++) {
-    threads[i].join();
-  }
-  cout << "Atomic Counter value = " << aCounter.get() << endl;
+  ConcurrentCounter cc;
+  cc(); // default NUM_OF_THREADS = 10
 
   return 0;
 }
