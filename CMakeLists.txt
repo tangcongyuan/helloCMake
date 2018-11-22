@@ -10,3 +10,6 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(include/)
 file(GLOB SOURCE src/*.cpp)
 add_executable(exec ${SOURCE})
+
+find_package( Threads )
+target_link_libraries( exec ${CMAKE_THREAD_LIBS_INIT} )

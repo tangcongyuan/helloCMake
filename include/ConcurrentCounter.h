@@ -2,6 +2,7 @@
 #define __CONCURRENT_COUNTER__
 
 #include <thread>
+#include <mutex>
 #include <atomic>
 #include <iostream>
 
