@@ -33,7 +33,7 @@ std::ostream& operator<<(std::ostream& os, const Value& value) {
     return os;
 }
 
-Card::Card() {}
+// Card::Card() {}
 
 Card::Card(Suit suit, Value value) : _suit(suit), _value(value) {
     // std::cout << "Created " << this->str() << std::endl;

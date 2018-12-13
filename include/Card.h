@@ -41,7 +41,7 @@ std::ostream& operator<<(std::ostream& os, const Value& value);
 
 class Card {
 public:
-    Card();                         // Default Constructor
+    // Card();                         // Default Constructor
     Card(Suit suit, Value value);   // Custom Constructor
     Card(const Card& c) = delete;            // Custome Copy Constructor
     Card(Card&& c);                 // Custom Move Constructor
