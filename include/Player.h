@@ -11,7 +11,7 @@ class Player {
 public:
     Player(long player_id);                // Custom Constructor
     Player(const Player& player) = delete; // Copy Constructor
-    Player(Player&& player) = delete;      // Move Constructor
+    Player(Player&& player);               // Move Constructor
     Player& operator=(const Player& rhs) = delete; // Copy Assign operator
     Player& operator=(Player&& rhs) = delete;      // Move Assign operator
     ~Player();                             // Default Destructor

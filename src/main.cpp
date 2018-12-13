@@ -1,4 +1,5 @@
 #include "Table.h"
+#include "Player.h"
 #include "ConcurrentCounter.h"
 #include "Instruction.h"
 #include "util.h"
@@ -28,6 +29,9 @@ int main(int argc, char** argv) {
 
     Table table{DECKS_PER_TABLE, PLAYERS_PER_TABLE, CARDS_TO_KEEP};
     table.shuffle();
+
+    vector<Player::Player> players;
+    for(int i = 0; i < PLAYERS_PER_TABLE; i++) players.emplace_back(i);
 
     return 0;
 }
