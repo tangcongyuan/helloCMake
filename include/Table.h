@@ -14,6 +14,7 @@ public:
     Table(Table&& table) = delete;
     Table& operator=(const Table& rhs) = delete;
 
+    void shuffle();
     std::string str();
 
 private:

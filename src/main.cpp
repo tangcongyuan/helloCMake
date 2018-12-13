@@ -27,6 +27,7 @@ int main(int argc, char** argv) {
     // cc(); // default NUM_OF_THREADS = 10
 
     Table table{DECKS_PER_TABLE, PLAYERS_PER_TABLE, CARDS_TO_KEEP};
+    table.shuffle();
 
     return 0;
 }

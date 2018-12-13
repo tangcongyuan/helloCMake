@@ -1,5 +1,8 @@
 #include "Table.h"
-#include <sstream>
+#include <algorithm>    // std::shuffle
+#include <random>       // std::default_random_engine
+#include <chrono>       // std::chrono::system_clock
+#include <sstream>      // std::ostringstream
 
 Table::Table(int decks_per_table,
         int players_per_table,
@@ -22,7 +25,15 @@ Table::Table(int decks_per_table,
     std::cout << "Table constains " << _shuffled.size() << " cards." << std::endl;
 }
 
-std::string Table:: str() {
+void Table::shuffle() {
+    // obtain a time-based seed:
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+
+    std::shuffle(_shuffled.begin(), _shuffled.end(), std::default_random_engine(seed));
+    for(auto& card : _shuffled) std::cout << card.str() << std::endl;
+}
+
+std::string Table::str() {
     std::ostringstream oss;
     oss << this->_num_decks << " decks per table; " <<
         this->_num_players << " players per table; " <<
