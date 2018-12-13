@@ -46,13 +46,14 @@ public:
   }
 
   void operator()(const int NUM_OF_THREADS = 10) const {
-    Counter counter;
-    AtomicCounter aCounter;
+    static Counter counter;
+    static AtomicCounter aCounter;
     std::thread threads[NUM_OF_THREADS];
 
     // Mutex with Counter
     for(int i = 0; i < NUM_OF_THREADS; i++) {
-      threads[i] = std::thread([&counter]() {
+      // threads[i] = std::thread([&counter]() {
+      threads[i] = std::thread([]() {
         for(int i = 0; i < 1000; i++)  counter.increment();
       });
     }
@@ -63,7 +64,8 @@ public:
 
     // Atomic Types with AtomicCounter
     for(int i = 0; i < NUM_OF_THREADS; i++) {
-      threads[i] = std::thread([&aCounter]() {
+      // threads[i] = std::thread([&aCounter]() {
+      threads[i] = std::thread([]() {
         for(int i = 0; i < 1000; i++)  aCounter.increment();
       });
     }
