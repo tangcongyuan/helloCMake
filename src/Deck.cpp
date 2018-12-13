@@ -10,3 +10,7 @@ Deck::Deck(int num) : _num_of_cards(num) {
 }
 
 Deck::~Deck(){}
+
+Card::Card& Deck::get_card(int i) {
+    return (this->_cards).at(i);
+}

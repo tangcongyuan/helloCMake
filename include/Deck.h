@@ -11,6 +11,8 @@ public:
     Deck(Deck&& deck) = delete;
     Deck& operator=(const Deck& deck) = delete;
     ~Deck();
+
+    Card::Card& get_card(int i);
 private:
     int _num_of_cards;
     std::vector<Card::Card> _cards;
