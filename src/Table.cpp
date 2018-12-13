@@ -12,8 +12,10 @@ Table::Table(int decks_per_table,
     for(int i = 0; i < _num_decks; i++) {
       Deck deck{CARDS_PER_DECK};
       for(int j = 0; j < CARDS_PER_DECK; j++) {
-          auto& card = deck.get_card(j);
-          _shuffled.emplace_back(card.get_suit(), card.get_value());
+          // Both of following calls Move Constructor of Card class
+          // auto& card = deck.get_card(j);
+          // _shuffled.emplace_back(card.get_suit(), card.get_value());
+          _shuffled.emplace_back(std::move(deck.get_card(j)));
       }
     }
 
