@@ -3,13 +3,22 @@
 
 #include "Card.h"
 #include <vector>
+#include <string>
 
 namespace Player {
 
 class Player {
 public:
-    Player(){}
+    Player(long player_id);                // Custom Constructor
+    Player(const Player& player) = delete; // Copy Constructor
+    Player(Player&& player) = delete;      // Move Constructor
+    Player& operator=(const Player& rhs) = delete; // Copy Assign operator
+    Player& operator=(Player&& rhs) = delete;      // Move Assign operator
+    ~Player();                             // Default Destructor
+
+    std::string str();
 private:
+    long _id;
     std::vector<Card::Card> _hand;
 };
 

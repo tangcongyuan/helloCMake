@@ -30,7 +30,7 @@ void Table::shuffle() {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 
     std::shuffle(_shuffled.begin(), _shuffled.end(), std::default_random_engine(seed));
-    for(auto& card : _shuffled) std::cout << card.str() << std::endl;
+    // for(auto& card : _shuffled) std::cout << card.str() << std::endl;
 }
 
 std::string Table::str() {
