@@ -17,11 +17,11 @@ public:
     std::string str();
 
 private:
-    int _decks;
-    int _players;
+    int _num_decks;
+    int _num_players;
     int _keep;
-    std::vector<Card::Card> shuffled;
-    std::vector<Player::Player> players;
+    std::vector<Card::Card> _shuffled;
+    std::vector<Player::Player> _players;
 };
 
 #endif // __TABLE_H__
