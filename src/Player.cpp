@@ -2,6 +2,7 @@
 #include "Player.h"
 #include <sstream> // std::ostringstream
 #include <iostream>// std::cout, std::endl
+#include <cassert>  // assert
 
 namespace Player {
 // Custom Constructor
