@@ -7,6 +7,10 @@
 class Deck {
 public:
     Deck(int num);
+    Deck(const Deck& deck) = delete;
+    Deck(Deck&& deck) = delete;
+    Deck& operator=(const Deck& deck) = delete;
+    ~Deck();
 private:
     int _num_of_cards;
     std::vector<Card::Card> _cards;
