@@ -51,6 +51,9 @@ public:
     std::string str();
     std::string emoji();
 
+    Suit get_suit();
+    Value get_value();
+
 private:
     Suit _suit;
     Value _value;

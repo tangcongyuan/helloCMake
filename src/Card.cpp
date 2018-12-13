@@ -56,7 +56,7 @@ Card& Card::operator=(const Card& rhs) {
 }
 
 Card::~Card(){
-    // std::cout << "Card deleted: " << this->str() << std::endl;
+    std::cout << "Card deleted: " << this->str() << std::endl;
 }
 
 std::string Card::str() {
@@ -75,5 +75,8 @@ std::string Card::emoji() {
     };
     return emojis[13 * (int)this->_suit + (int)this->_value];
 }
+
+Suit Card::get_suit() { return this->_suit; }
+Value Card::get_value() { return this->_value; }
 
 }
