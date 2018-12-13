@@ -9,7 +9,8 @@ public:
     Deck(int num);
     Deck(const Deck& deck) = delete;
     Deck(Deck&& deck) = delete;
-    Deck& operator=(const Deck& deck) = delete;
+    Deck& operator=(const Deck& rhs) = delete;
+    Deck& operator=(Deck&& rhs) = delete;
     ~Deck();
 
     Card::Card& get_card(int i);

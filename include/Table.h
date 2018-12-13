@@ -13,6 +13,7 @@ public:
     Table(const Table& table) = delete;
     Table(Table&& table) = delete;
     Table& operator=(const Table& rhs) = delete;
+    Table& operator=(Table&& rhs) = delete;
 
     void shuffle();
     std::string str();
