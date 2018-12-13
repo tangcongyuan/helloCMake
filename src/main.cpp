@@ -1,4 +1,4 @@
-#include "Deck.h"
+#include "Table.h"
 #include "ConcurrentCounter.h"
 #include "Instruction.h"
 #include "util.h"
@@ -26,12 +26,7 @@ int main(int argc, char** argv) {
     // ConcurrentCounter cc;
     // cc(); // default NUM_OF_THREADS = 10
 
-    Deck deck{CARDS_PER_DECK};
-
-    cout << string("\U0001F0A1") << endl; // Spades
-    cout << string("\U0001F0B1") << endl; // Hearts
-    cout << string("\U0001F0C1") << endl; // Diamonds
-    cout << string("\U0001F0D1") << endl; // Clubs
+    Table table{DECKS_PER_TABLE, PLAYERS_PER_TABLE, CARDS_TO_KEEP};
 
     return 0;
 }

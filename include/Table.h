@@ -1,17 +1,27 @@
 #ifndef __TABLE_H__
 #define __TABLE_H__
 
-#include "Hand.h"
+#include "Deck.h"
+#include "Player.h"
+#include <vector>
 
-Class Table {
+class Table {
 public:
-    Table(int num_of_players) : _players(num_of_players) {}
-    initialize() {
+    Table(int decks_per_table,
+        int players_per_table,
+        int cards_to_keep);
+    Table(const Table& table) = delete;
+    Table(Table&& table) = delete;
+    Table& operator=(const Table& rhs) = delete;
 
-    }
+    std::string str();
+
 private:
+    int _decks;
     int _players;
-    vector<Hand> hands;
+    int _keep;
+    std::vector<Card::Card> shuffled;
+    std::vector<Player::Player> players;
 };
 
 #endif // __TABLE_H__
