@@ -49,14 +49,14 @@ Card::Card(Card&& c){
     this->_value = c._value;
 }
 
-Card& Card::operator=(const Card& rhs) {
-    this->_suit = rhs._suit;
-    this->_value = rhs._value;
-    return *this;
-}
+// Card& Card::operator=(const Card& rhs) {
+//     this->_suit = rhs._suit;
+//     this->_value = rhs._value;
+//     return *this;
+// }
 
 Card::~Card(){
-    std::cout << "Card deleted: " << this->str() << std::endl;
+    // std::cout << "Card deleted: " << this->str() << std::endl;
 }
 
 std::string Card::str() {
@@ -73,7 +73,8 @@ std::string Card::emoji() {
         "\U0001F0C1", "\U0001F0C2", "\U0001F0C3", "\U0001F0C4", "\U0001F0C5", "\U0001F0C6", "\U0001F0C7", "\U0001F0C8", "\U0001F0C9", "\U0001F0CA", "\U0001F0CB", "\U0001F0CD", "\U0001F0CE", // Clubs
         "\U0001F0DF", "\U0001F0CF", // Jokers
     };
-    return emojis[13 * (int)this->_suit + (int)this->_value];
+    const int CARDS_PER_SUIT = 13;
+    return emojis[CARDS_PER_SUIT * (int)this->_suit + (int)this->_value];
 }
 
 Suit Card::get_suit() { return this->_suit; }

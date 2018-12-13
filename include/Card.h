@@ -45,7 +45,7 @@ public:
     Card(Suit suit, Value value);   // Custom Constructor
     Card(const Card& c) = delete;            // Custome Copy Constructor
     Card(Card&& c);                 // Custome Move Constructor
-    Card& operator=(const Card& c); // Custom Copy Assign Constructor
+    Card& operator=(const Card& c) = delete; // Custom Copy Assign Constructor
     ~Card();                        // Custom Destructor
 
     std::string str();
