@@ -44,8 +44,9 @@ public:
     Card();                         // Default Constructor
     Card(Suit suit, Value value);   // Custom Constructor
     Card(const Card& c) = delete;            // Custome Copy Constructor
-    Card(Card&& c);                 // Custome Move Constructor
+    Card(Card&& c);                 // Custom Move Constructor
     Card& operator=(const Card& c) = delete; // Custom Copy Assign Constructor
+    Card& operator=(Card&& c);      // Custom Move Assign Constructor, for std::shuffle/swap algorithm
     ~Card();                        // Custom Destructor
 
     std::string str();

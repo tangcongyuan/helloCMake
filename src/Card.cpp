@@ -55,6 +55,12 @@ Card::Card(Card&& c){
 //     return *this;
 // }
 
+Card& Card::operator=(Card&& rhs) {
+  this->_suit = rhs._suit;
+  this->_value = rhs._value;
+  return *this;
+}
+
 Card::~Card(){
     // std::cout << "Card deleted: " << this->str() << std::endl;
 }
