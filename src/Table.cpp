@@ -10,7 +10,7 @@ Table::Table(int decks_per_table,
         _num_decks(decks_per_table),
         _num_players(players_per_table),
         _keep(cards_to_keep) {
-    // std::cout << "Create Table: " << this->str() << std::endl;
+    // std::cout << "Create Table: " << str() << std::endl;
     _shuffled.reserve(_num_decks * CARDS_PER_DECK);
     for(int i = 0; i < _num_decks; i++) {
       Deck deck{CARDS_PER_DECK};
@@ -35,8 +35,8 @@ void Table::shuffle() {
 
 std::string Table::str() {
     std::ostringstream oss;
-    oss << this->_num_decks << " decks per table; " <<
-        this->_num_players << " players per table; " <<
-        this->_keep << " cards to keep.";
+    oss << _num_decks << " decks per table; " <<
+        _num_players << " players per table; " <<
+        _keep << " cards to keep.";
     return oss.str();
 }

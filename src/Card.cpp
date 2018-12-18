@@ -36,38 +36,38 @@ std::ostream& operator<<(std::ostream& os, const Value& value) {
 // Card::Card() {}
 
 Card::Card(Suit suit, Value value) : _suit(suit), _value(value) {
-    // std::cout << "Created " << this->str() << std::endl;
+    // std::cout << "Created " << str() << std::endl;
 }
 
 // Card::Card(const Card& c){
-//     this->_suit = c._suit;
-//     this->_value = c._value;
+//     _suit = c._suit;
+//     _value = c._value;
 // }
 
 Card::Card(Card&& c){
-    this->_suit = c._suit;
-    this->_value = c._value;
+    _suit = c._suit;
+    _value = c._value;
 }
 
 // Card& Card::operator=(const Card& rhs) {
-//     this->_suit = rhs._suit;
-//     this->_value = rhs._value;
+//     _suit = rhs._suit;
+//     _value = rhs._value;
 //     return *this;
 // }
 
 Card& Card::operator=(Card&& rhs) {
-  this->_suit = rhs._suit;
-  this->_value = rhs._value;
+  _suit = rhs._suit;
+  _value = rhs._value;
   return *this;
 }
 
 Card::~Card(){
-    // std::cout << "Card deleted: " << this->str() << std::endl;
+    // std::cout << "Card deleted: " << str() << std::endl;
 }
 
 std::string Card::str() {
     std::ostringstream oss;
-    oss << "Card: " << this->_value << " of " << this->_suit;
+    oss << "Card: " << _value << " of " << _suit;
     return oss.str();
 }
 
@@ -80,11 +80,11 @@ std::string Card::emoji() {
         "\U0001F0DF", "\U0001F0CF", // Jokers
     };
     const int CARDS_PER_SUIT = 13;
-    return emojis[CARDS_PER_SUIT * (int)this->_suit + (int)this->_value];
+    return emojis[CARDS_PER_SUIT * (int)_suit + (int)_value];
 }
 
-Suit Card::get_suit() { return this->_suit; }
-Value Card::get_value() { return this->_value; }
+Suit Card::get_suit() { return _suit; }
+Value Card::get_value() { return _value; }
 
 std::ostream& operator<<(std::ostream& os, Card& card) {
     os << "Card: " << card.get_value() << " of " << card.get_suit();
