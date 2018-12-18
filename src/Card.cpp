@@ -86,4 +86,9 @@ std::string Card::emoji() {
 Suit Card::get_suit() { return this->_suit; }
 Value Card::get_value() { return this->_value; }
 
+std::ostream& operator<<(std::ostream& os, Card& card) {
+    os << "Card: " << card.get_value() << " of " << card.get_suit();
+    return os;
+}
+
 }

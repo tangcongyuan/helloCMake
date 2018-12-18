@@ -41,9 +41,9 @@ std::ostream& operator<<(std::ostream& os, const Value& value);
 
 class Card {
 public:
-    // Card();                         // Default Constructor
+    // Card();                      // Default Constructor
     Card(Suit suit, Value value);   // Custom Constructor
-    Card(const Card& c) = delete;            // Custome Copy Constructor
+    Card(const Card& c) = delete;   // Custome Copy Constructor
     Card(Card&& c);                 // Custom Move Constructor
     Card& operator=(const Card& c) = delete; // Custom Copy Assign operator
     Card& operator=(Card&& c);      // Custom Move Assign operator, for std::shuffle/swap algorithm
@@ -59,6 +59,9 @@ private:
     Suit _suit;
     Value _value;
 };
+
+// Overload operator via non-member function
+std::ostream& operator<<(std::ostream& os, Card& card);
 
 }
 
