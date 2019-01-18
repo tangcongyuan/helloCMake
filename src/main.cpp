@@ -33,5 +33,14 @@ int main(int argc, char** argv) {
     vector<Player::Player> players;
     for(int i = 0; i < PLAYERS_PER_TABLE; i++) players.emplace_back(i);
 
+    list<int> l1{1, 3, 5, 7, 9};
+    list<int> l2{2, 4, 6, 8, 0};
+    list<int>::iterator it = l1.begin();
+    ++it;
+    l1.splice(it, l2, l2.begin()); // , l2.end());
+    std::cout << "*it = " << *it << std::endl;
+    util::print(l1, "l1");
+    util::print(l2, "l2");
+
     return 0;
 }
