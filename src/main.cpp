@@ -7,6 +7,7 @@
 #include <vector>
 #include <list>
 #include <string>
+#include <queue>
 
 int main(int argc, char** argv) {
     using namespace std;
@@ -41,6 +42,14 @@ int main(int argc, char** argv) {
     std::cout << "*it = " << *it << std::endl;
     util::print(l1, "l1");
     util::print(l2, "l2");
+
+    // priority_queue<int, vector<int>, std::less<int>> q;
+    priority_queue<std::pair<int, int>> q;
+    q.push({1, 1});q.push({3, 3});q.push({2, 2});q.push({5, 5});q.push({6, 6});q.push({4, 4});
+    while(q.size()) {
+        std::cout << q.top().first << std::endl;
+        q.pop();
+    }
 
     return 0;
 }
